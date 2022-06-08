@@ -1,0 +1,8 @@
+const path = requere('path')
+
+module.exports = {
+    'config': path.resolve('config', 'config.json'),
+    'models-path': path.resolve('models'),
+    'seeds-path': path.resolve('seeders'),
+    'migration-path': path.resolve('migrations')
+}
