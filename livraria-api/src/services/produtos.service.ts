@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
-import { Produto } from '../models/produto.model';
+import { Produto } from '../models/livro.model';
 
 @Injectable()
 export class ProdutosService{

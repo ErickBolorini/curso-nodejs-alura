@@ -1,7 +1,7 @@
 import { ProdutosService } from '../services/produtos.service';
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { Produto } from '../models/produto.model'
+import { Produto } from '../models/livro.model'
 
 @Controller('produtos')
 export class ProdutosController {
