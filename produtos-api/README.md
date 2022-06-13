@@ -30,6 +30,10 @@
 
 ```bash
 $ npm install
+$ npm install -g @nestjs/cli //Instalação global
+$ nest new projeto-name
+
+
 ```
 
 ## Running the app
