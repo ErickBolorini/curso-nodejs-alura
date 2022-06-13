@@ -13,32 +13,27 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProdutosController = void 0;
+const produtos_service_1 = require("./produtos.service");
 const common_1 = require("@nestjs/common");
 const produto_model_1 = require("./produto.model");
 let ProdutosController = class ProdutosController {
-    constructor() {
-        this.produtos = [
-            new produto_model_1.Produto("LIV01", "Livro TDDe BDD na prática", 29.90),
-            new produto_model_1.Produto("LIV02", "Livro iniciando em Flutter", 39.90),
-            new produto_model_1.Produto("LIV03", "Livro em java", 49.90)
-        ];
+    constructor(produtosService) {
+        this.produtosService = produtosService;
     }
     obterTodos() {
-        return this.produtos;
+        return this.produtosService.obterTodos();
     }
     obterUm(params) {
-        return this.produtos[0];
+        return this.produtosService.obterUm(params.id);
     }
     criar(produto) {
-        console.log(produto);
-        return 'Produto criado';
+        this.produtosService.criar(produto);
     }
     alterar(produto) {
-        console.log(produto);
-        return 'Produto atualizado';
+        this.produtosService.alterar(produto);
     }
     apagar(params) {
-        return `Apaga o produto ${params.id}`;
+        this.produtosService.apagar(params.id);
     }
 };
 __decorate([
@@ -65,18 +60,19 @@ __decorate([
     (0, common_1.Put)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [produto_model_1.Produto]),
+    __metadata("design:returntype", void 0)
 ], ProdutosController.prototype, "alterar", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", void 0)
 ], ProdutosController.prototype, "apagar", null);
 ProdutosController = __decorate([
-    (0, common_1.Controller)('produtos')
+    (0, common_1.Controller)('produtos'),
+    __metadata("design:paramtypes", [produtos_service_1.ProdutosService])
 ], ProdutosController);
 exports.ProdutosController = ProdutosController;
 //# sourceMappingURL=produtos.controller.js.map

@@ -1,11 +1,16 @@
+/* eslint-disable prettier/prettier */
+import { ProdutosService } from './services/produtos.service';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { ProdutosController } from './produtos.controller';
+import { AppController } from './controllers/app.controller';
+import { AppService } from './services/app.service';
+import { ProdutosController } from './controllers/produtos.controller';
+import { SequelizeModule } from '@nestjs/sequelize';
 
 @Module({
-  imports: [],
+  imports: [
+    
+  ],
   controllers: [AppController, ProdutosController],
-  providers: [AppService],
+  providers: [AppService, ProdutosService],
 })
 export class AppModule {}
