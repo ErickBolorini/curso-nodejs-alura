@@ -23,13 +23,13 @@ export class LivrosService {
         this.livroModel.create(livro);
     }
 
-    async alterar(livro: Livro): Promise<[number, Livro[]]> {
+    /*async alterar(livro: Livro): Promise<[number, Livro[]]> {
         return this.livroModel.update(livro, {
             where: {
                 id: livro.id
             }
         });
-    }
+    }*/
 
     async apagar(id: number) {
         const livro: Livro = await this.obterUm(id);

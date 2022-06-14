@@ -4,7 +4,6 @@ export declare class LivrosService {
     constructor(livroModel: typeof Livro);
     obterTodos(): Promise<Livro[]>;
     obterUm(id: number): Promise<Livro>;
-    criar(livro: Livro): void;
-    alterar(livro: Livro): Livro;
-    apagar(id: number): void;
+    criar(livro: Livro): Promise<void>;
+    apagar(id: number): Promise<void>;
 }

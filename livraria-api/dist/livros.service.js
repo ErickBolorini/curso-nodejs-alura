@@ -24,16 +24,14 @@ let LivrosService = class LivrosService {
         return this.livroModel.findAll();
     }
     async obterUm(id) {
-        return this.livros[0];
+        return this.livroModel.findByPk(id);
     }
-    criar(livro) {
-        this.livros.push(livro);
+    async criar(livro) {
+        this.livroModel.create(livro);
     }
-    alterar(livro) {
-        return livro;
-    }
-    apagar(id) {
-        this.livros.pop();
+    async apagar(id) {
+        const livro = await this.obterUm(id);
+        livro.destroy();
     }
 };
 LivrosService = __decorate([

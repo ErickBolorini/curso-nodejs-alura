@@ -20,19 +20,16 @@ let LivrosController = class LivrosController {
     constructor(livrosService) {
         this.livrosService = livrosService;
     }
-    obterTodos() {
+    async obterTodos() {
         return this.livrosService.obterTodos();
     }
-    obterUm(params) {
+    async obterUm(params) {
         return this.livrosService.obterUm(params.id);
     }
-    criar(livro) {
+    async criar(livro) {
         this.livrosService.criar(livro);
     }
-    alterar(livro) {
-        return this.livrosService.alterar(livro);
-    }
-    apagar(params) {
+    async apagar(params) {
         this.livrosService.apagar(params.id);
     }
 };
@@ -40,35 +37,28 @@ __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Array)
+    __metadata("design:returntype", Promise)
 ], LivrosController.prototype, "obterTodos", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", livro_model_1.Livro)
+    __metadata("design:returntype", Promise)
 ], LivrosController.prototype, "obterUm", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [livro_model_1.Livro]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], LivrosController.prototype, "criar", null);
-__decorate([
-    (0, common_1.Put)(),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [livro_model_1.Livro]),
-    __metadata("design:returntype", livro_model_1.Livro)
-], LivrosController.prototype, "alterar", null);
 __decorate([
     (0, common_1.Delete)(':id'),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], LivrosController.prototype, "apagar", null);
 LivrosController = __decorate([
     (0, common_1.Controller)('livros'),

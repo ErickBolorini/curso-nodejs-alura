@@ -3,9 +3,8 @@ import { LivrosService } from "./livros.service";
 export declare class LivrosController {
     private livrosService;
     constructor(livrosService: LivrosService);
-    obterTodos(): Livro[];
-    obterUm(params: any): Livro;
-    criar(livro: Livro): void;
-    alterar(livro: Livro): Livro;
-    apagar(params: any): void;
+    obterTodos(): Promise<Livro[]>;
+    obterUm(params: any): Promise<Livro>;
+    criar(livro: Livro): Promise<void>;
+    apagar(params: any): Promise<void>;
 }
