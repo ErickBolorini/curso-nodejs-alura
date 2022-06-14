@@ -1,4 +1,4 @@
-import { Produto } from './produto.model';
+import { Produto } from "./produto.model";
 export declare class ProdutosService {
     produtos: Produto[];
     obterTodos(): Produto[];

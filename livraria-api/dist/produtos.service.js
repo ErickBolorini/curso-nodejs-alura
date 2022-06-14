@@ -12,9 +12,9 @@ const produto_model_1 = require("./produto.model");
 let ProdutosService = class ProdutosService {
     constructor() {
         this.produtos = [
-            new produto_model_1.Produto("LIV01", "Livro TDDe BDD na prática", 29.90),
-            new produto_model_1.Produto("LIV02", "Livro iniciando em Flutter", 39.90),
-            new produto_model_1.Produto("LIV03", "Livro em java", 49.90)
+            new produto_model_1.Produto("LIV01", "Livro TDD e BDD na prática", 29.90),
+            new produto_model_1.Produto("LIV02", "Livro Iniciando com Flutter", 39.90),
+            new produto_model_1.Produto("LIV03", "Inteligência artificial como serviço", 29.90),
         ];
     }
     obterTodos() {

@@ -11,11 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var _a, _b, _c, _d;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProdutosController = void 0;
-const produtos_service_1 = require("./produtos.service");
 const common_1 = require("@nestjs/common");
 const produto_model_1 = require("./produto.model");
+const produtos_service_1 = require("./produtos.service");
 let ProdutosController = class ProdutosController {
     constructor(produtosService) {
         this.produtosService = produtosService;
@@ -30,7 +31,7 @@ let ProdutosController = class ProdutosController {
         this.produtosService.criar(produto);
     }
     alterar(produto) {
-        this.produtosService.alterar(produto);
+        return this.produtosService.alterar(produto);
     }
     apagar(params) {
         this.produtosService.apagar(params.id);
@@ -47,21 +48,21 @@ __decorate([
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", produto_model_1.Produto)
+    __metadata("design:returntype", typeof (_a = typeof produto_model_1.Produto !== "undefined" && produto_model_1.Produto) === "function" ? _a : Object)
 ], ProdutosController.prototype, "obterUm", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [produto_model_1.Produto]),
+    __metadata("design:paramtypes", [typeof (_b = typeof produto_model_1.Produto !== "undefined" && produto_model_1.Produto) === "function" ? _b : Object]),
     __metadata("design:returntype", void 0)
 ], ProdutosController.prototype, "criar", null);
 __decorate([
     (0, common_1.Put)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [produto_model_1.Produto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [typeof (_c = typeof produto_model_1.Produto !== "undefined" && produto_model_1.Produto) === "function" ? _c : Object]),
+    __metadata("design:returntype", typeof (_d = typeof produto_model_1.Produto !== "undefined" && produto_model_1.Produto) === "function" ? _d : Object)
 ], ProdutosController.prototype, "alterar", null);
 __decorate([
     (0, common_1.Delete)(':id'),
