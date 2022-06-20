@@ -23,13 +23,16 @@ export class LivrosService {
         this.livroModel.create(livro);
     }
 
-    /*async alterar(livro: Livro): Promise<[number, Livro[]]> {
-        return this.livroModel.update(livro, {
+    async alterar(livro: Livro) {
+        await this.livroModel.update(livro, {
             where: {
                 id: livro.id
             }
         });
-    }*/
+        const livroAtualizado = await this.livroModel.findOne({ where: { id: Number(livro.id) } })
+        return livroAtualizado
+
+    }
 
     async apagar(id: number) {
         const livro: Livro = await this.obterUm(id);
