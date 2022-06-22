@@ -1,6 +1,8 @@
-import { UsuarioService } from "./usuario.service";
+import { UsuarioService } from './usuario.service';
+import { Usuario } from './usuario.entity';
 export declare class UsuarioController {
     private usuarioService;
     constructor(usuarioService: UsuarioService);
-    cria(usuario: any): any;
+    buscaPorNomeDeUsuario(nomeDeUsuario: string): Usuario;
+    cria(usuario: Usuario): Usuario;
 }

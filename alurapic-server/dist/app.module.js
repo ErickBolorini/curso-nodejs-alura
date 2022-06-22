@@ -8,15 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const usuario_controller_1 = require("./usuario/usuario.controller");
-const usuario_service_1 = require("./usuario/usuario.service");
+const usuario_module_1 = require("./usuario/usuario.module");
+const core_1 = require("@nestjs/core");
+const filtro_de_excecao_http_filter_1 = require("./common/filtros/filtro-de-excecao-http.filter");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
-        controllers: [usuario_controller_1.UsuarioController],
-        providers: [usuario_service_1.UsuarioService],
+        imports: [usuario_module_1.UsuarioModule],
+        controllers: [],
+        providers: [
+            {
+                provide: core_1.APP_FILTER,
+                useClass: filtro_de_excecao_http_filter_1.FitroDeExcecaoHttp
+            },
+            {
+                provide: core_1.APP_INTERCEPTOR,
+                useClass: common_1.ClassSerializerInterceptor
+            }
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

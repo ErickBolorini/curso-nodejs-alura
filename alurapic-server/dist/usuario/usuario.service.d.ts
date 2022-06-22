@@ -1,4 +1,6 @@
+import { Usuario } from './usuario.entity';
 export declare class UsuarioService {
     private usuarios;
-    cria(usuario: any): any;
+    cria(usuario: Usuario): Usuario;
+    buscaPorNomeDeUsuario(nomeDeUsuario: string): Usuario;
 }

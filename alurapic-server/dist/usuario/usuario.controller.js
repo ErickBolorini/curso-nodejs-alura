@@ -15,9 +15,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuarioController = void 0;
 const common_1 = require("@nestjs/common");
 const usuario_service_1 = require("./usuario.service");
+const usuario_entity_1 = require("./usuario.entity");
 let UsuarioController = class UsuarioController {
     constructor(usuarioService) {
         this.usuarioService = usuarioService;
+    }
+    buscaPorNomeDeUsuario(nomeDeUsuario) {
+        const usuarioEncontrado = this.usuarioService.buscaPorNomeDeUsuario(nomeDeUsuario);
+        return usuarioEncontrado;
     }
     cria(usuario) {
         const usuarioCriado = this.usuarioService.cria(usuario);
@@ -25,11 +30,18 @@ let UsuarioController = class UsuarioController {
     }
 };
 __decorate([
+    (0, common_1.Get)(':nomeDeUsuario'),
+    __param(0, (0, common_1.Param)('nomeDeUsuario')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", usuario_entity_1.Usuario)
+], UsuarioController.prototype, "buscaPorNomeDeUsuario", null);
+__decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [usuario_entity_1.Usuario]),
+    __metadata("design:returntype", usuario_entity_1.Usuario)
 ], UsuarioController.prototype, "cria", null);
 UsuarioController = __decorate([
     (0, common_1.Controller)('users'),
