@@ -5,9 +5,7 @@ import { LivrosService } from "./livros.service";
 
 @Controller('livros')
 export class LivrosController {
-    constructor(private livrosService: LivrosService) {
-
-    }
+    constructor(private livrosService: LivrosService) { }
 
     @Get()
     async obterTodos(): Promise<Livro[]> {
@@ -21,7 +19,11 @@ export class LivrosController {
 
     @Post()
     async criar(@Body() livro: Livro) {
-        this.livrosService.criar(livro);
+        try {
+            this.livrosService.criar(livro);
+        } catch (error) {
+            console.log (error.message);
+        }
     }
 
     @Put()
